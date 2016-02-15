@@ -47,74 +47,147 @@ namespace CS3358_Sp2016
 {
    // CONSTRUCTORS and DESTRUCTOR
    sequence::sequence(size_type initial_capacity)
+       : used(0), current_index(0), capacity(initial_capacity)
    {
-      cout << "sequence(size_type initial_capacity) not implemented yet" << endl;
+       // Validate capacity
+       if (capacity < 1) {
+           capacity = 1;
+       }
+
+       data = new value_type[capacity];
    }
 
    sequence::sequence(const sequence& source)
+       : used(source.used), current_index(source.current_index),
+         capacity(source.capacity)
    {
-      cout << "sequence(const sequence& source) not implemented yet" << endl;
+       data = new value_type[capacity];
+       for (int i = 0; i < used; i++) {
+           data[i] = source.data[i];
+       }
    }
 
-   sequence::~sequence()
-   {
-      cout << "~sequence() not implemented yet" << endl;
-   }
+    sequence::~sequence()
+    {
+        delete [] data;
+    }
 
-   // MODIFICATION MEMBER FUNCTIONS
-   void sequence::resize(size_type new_capacity)
-   {
-      cout << "resize(size_type new_capacity) not implemented yet" << endl;
-   }
+    // MODIFICATION MEMBER FUNCTIONS
+    void sequence::resize(size_type new_capacity)
+    {
+        // Ensure new_capacity will be able to retain existing data
+        if (new_capacity < 1 || new_capacity < used) {
+            // Set capacity to exactly what is needed or to 1
+            capacity = used > 0 ? used : 1;
+        } else {
+            // If the capacity is growing
+            capacity = (new_capacity == capacity) ? new_capacity + 1 : new_capacity;
 
-   void sequence::start()
-   {
-      cout << "start() not implemented yet" << endl;
-   }
+            value_type *temp = new value_type[capacity]; // Allocate space
+            if (temp == NULL) // Ensure memory is allocated
+            {
+                cerr << "*** Error: Memory not available. Exiting program. ***";
+                exit(0);
+            }
 
-   void sequence::advance()
-   {
-      cout << "advance() not implemented yet" << endl;
-   }
+            for (int i = 0; i < used; i++) {
+                temp[i] = data[i]; // Copy existing values
+            }
 
-   void sequence::insert(const value_type& entry)
-   {
-      cout << "insert(const value_type& entry) not implemented yet" << endl;
-   }
+            delete [] data; // Free up old space
+            data = temp; // Update sequence::data to new memory location
+        }
+    }
 
-   void sequence::attach(const value_type& entry)
-   {
-      cout << "attach(const value_type& entry) not implemented yet" << endl;
-   }
+    void sequence::start() {
+//       The first item on the sequence becomes the current item
+//      (but if the sequence is empty, then there is no current item).   }
+        if (used > 0) {
+            current_index = 0;
+        }
+    }
 
-   void sequence::remove_current()
-   {
-      cout << "remove_current() not implemented yet" << endl;
-   }
+    void sequence::advance()
+    {
+//    Pre:  is_item returns true.
+//    Post: If the current item was already the last item in the
+//      sequence, then there is no longer any current item. Otherwise,
+//      the new current item is the item immediately after the original
+//      current item.
 
-   sequence& sequence::operator=(const sequence& source)
-   {
-      cout << "operator=(const sequence& source) not implemented yet" << endl;
-      return *this;
-   }
+        // If item(s) exists in sequence
+        if (is_item()) {
+            if (current_index != used) {
+                current_index++;
+            }
+        }
+    }
+
+    void sequence::insert(const value_type& entry)
+    {
+        //A new copy of entry has been inserted in the sequence
+//      before the current item. If there was no current item, then
+//      the new entry has been inserted at the front of the sequence.
+//      In either case, the newly inserted item is now the current item
+//      of the sequence.
+
+        cout << "Current index " << current_index << endl;
+
+        if (current_index > 0) {
+            // write to current_index-1;
+            data[current_index-1] = entry;
+            // Be sure to preserve all data that is currently there
+            // which may require shifting / resizing
+            used++;
+        } else {
+            data[current_index] = entry;
+            used++;
+        }
+    }
+
+    void sequence::attach(const value_type& entry)
+    {
+        cout << "attach(const value_type& entry) not implemented yet" << endl;
+    }
+
+    void sequence::remove_current()
+    {
+        cout << "remove_current() not implemented yet" << endl;
+    }
+
+    sequence& sequence::operator=(const sequence& source)
+    {
+        cout << "operator=(const sequence& source) not implemented yet" << endl;
+        return *this;
+    }
 
    // CONSTANT MEMBER FUNCTIONS
-   sequence::size_type sequence::size() const
-   {
-      cout << "size() not implemented yet" << endl;
-      return 0; // dummy value returned
-   }
 
-   bool sequence::is_item() const
-   {
-      cout << "is_item() not implemented yet" << endl;
-      return false; // dummy value returned
-   }
+    sequence::size_type sequence::size() const
+    {
+        return used;
+    }
 
-   sequence::value_type sequence::current() const
-   {
-      cout << "current() not implemented yet" << endl;
-      return value_type(); // dummy value returned
-   }
+    bool sequence::is_item() const
+    {
+        // There can only be a valid current item if used > 0
+        if (current_index != used) {
+            return true;
+        }
+
+        return false;
+    }
+
+    sequence::value_type sequence::current() const
+    {
+        // If item(s) exists:
+        if (is_item()) {
+            cout << "From here: " << endl;
+            return data[0];
+        } else {
+            cout << "Returning value type for else " << value_type();
+            return value_type();
+        }
+    }
 }
 
