@@ -133,16 +133,22 @@ namespace CS3358_Sp2016
 
         cout << "Current index " << current_index << endl;
 
-        if (current_index > 0) {
-            // write to current_index-1;
-            data[current_index-1] = entry;
-            // Be sure to preserve all data that is currently there
-            // which may require shifting / resizing
-            used++;
-        } else {
-            data[current_index] = entry;
-            used++;
-        }
+//        if (current_index > 0) {
+//            // write to current_index-1;
+//            data[current_index-1] = entry;
+//            // Be sure to preserve all data that is currently there
+//            // which may require shifting / resizing
+//            used++;
+//        } else {
+//            data[current_index] = entry;
+//            used++;
+//        }
+
+        cout << "used: " << used << endl;
+        cout << "data[used]; " << data[used] << endl;
+        data[used] = entry;
+        current_index++;
+        used++;
     }
 
     void sequence::attach(const value_type& entry)
