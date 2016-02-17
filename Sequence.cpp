@@ -120,12 +120,10 @@ namespace CS3358_Sp2016
 
     void sequence::insert(const value_type& entry)
     {
-        if (used + 1 > capacity) { // If adding to sequence will exceed capacity
-            cout << "RESIZING" << endl;
+        if (used == capacity) { // If adding to sequence will exceed capacity
             resize((int) capacity * 1.25);
         }
 
-        cout << "CAPACITY: " << capacity << endl;
         if (current_index == used && used == 0) // If there is no current index
         { // and the sequence is empty
             data[0] = entry; // insert entry into first position
@@ -147,7 +145,6 @@ namespace CS3358_Sp2016
 
         int offSet = 0;
         for (int i = 0; i < used; ++i) {
-            cout << "Copy " << data[i] << " into index " << i << endl;
             if (current_index == i) {
                 offSet = 1;
             }
@@ -161,15 +158,10 @@ namespace CS3358_Sp2016
         used++;
     }
 
-    void sequence::attach(const value_type& entry) {
-//    Post: A new copy of entry has been inserted in the sequence after
-//      the current item. If there was no current item, then the new
-//      entry has been attached to the end of the sequence. In either
-//      case, the newly inserted item is now the current item of the
-//      sequence.
+    void sequence::attach(const value_type& entry)
+    {
 
-        if (used + 1 > capacity) { // If adding to sequence will exceed capacity
-            cout << "RESIZING" << endl;
+        if (used == capacity) { // If adding to sequence will exceed capacity
             resize((int) capacity * 1.25);
         }
 
@@ -191,7 +183,6 @@ namespace CS3358_Sp2016
 
         int offSet = 0;
         for (int i = 0; i < used; ++i) {
-            cout << "Copy " << data[i] << " into index " << i << endl;
             if (current_index+1 == i) {
                 offSet = 1;
             }
@@ -208,12 +199,40 @@ namespace CS3358_Sp2016
 
     void sequence::remove_current()
     {
-        cout << "remove_current() not implemented yet" << endl;
+        if (is_item()) {
+
+            // Copy current data into new sequence leaving space for new entry
+            value_type *temp = new value_type[capacity]; // Allocate space
+            if (temp == NULL) // Ensure memory is allocated
+            {
+                cerr << "*** Error: Memory not available. Exiting program. ***";
+                exit(0);
+            }
+
+            int offSet = 0;
+            for (int i = 0; i < used-1; ++i) {
+                if (current_index == i) {
+                    offSet = 1;
+                }
+                temp[i] = data[i+offSet]; // Copy existing values
+            }
+
+            delete [] data; // Free up old space
+            data = temp; // Update numbers to new memory location
+
+            used--;
+        }
     }
 
     sequence& sequence::operator=(const sequence& source)
     {
-        cout << "operator=(const sequence& source) not implemented yet" << endl;
+        used = source.used;
+        current_index = source.current_index;
+        capacity = source.capacity;
+        for (int i = 0; i < used; i++) {
+            data[i] = source.data[i];
+        }
+
         return *this;
     }
 
@@ -226,7 +245,7 @@ namespace CS3358_Sp2016
 
     bool sequence::is_item() const
     {
-        // There can only be a valid current item if used > 0
+        // A current item exists only if current_index is not the same as used
         if (current_index != used) {
             return true;
         }

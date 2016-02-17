@@ -12,10 +12,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="278a9081-53a5-497c-8bc7-39897d517da0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assign03.o" afterPath="$PROJECT_DIR$/Assign03.o" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sequence.o" afterPath="$PROJECT_DIR$/Sequence.o" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/a3" afterPath="$PROJECT_DIR$/a3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assign03.cpp" afterPath="$PROJECT_DIR$/Assign03.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sequence.cpp" afterPath="$PROJECT_DIR$/Sequence.cpp" />
     </list>
     <ignored path="Assign03SuppliedFiles.iws" />
@@ -40,18 +39,28 @@
       <file leaf-file-name="Sequence.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Sequence.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.666667">
-              <caret line="63" column="17" selection-start-line="59" selection-start-column="0" selection-end-line="63" selection-end-column="17" />
+            <state vertical-scroll-proportion="11.666667">
+              <caret line="70" column="59" selection-start-line="66" selection-start-column="0" selection-end-line="70" selection-end-column="59" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Sequence.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Sequence.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Sequence.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5777778">
-              <caret line="234" column="5" selection-start-line="234" selection-start-column="5" selection-end-line="234" selection-end-column="5" />
+            <state vertical-scroll-proportion="-7.2222223">
+              <caret line="240" column="45" selection-start-line="240" selection-start-column="45" selection-end-line="240" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Assign03Auto.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assign03Auto.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.491453">
+              <caret line="467" column="23" selection-start-line="467" selection-start-column="23" selection-end-line="467" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -77,6 +86,7 @@
       <list>
         <option value="$PROJECT_DIR$/Assign03.cpp" />
         <option value="$PROJECT_DIR$/Sequence.cpp" />
+        <option value="$PROJECT_DIR$/Assign03Auto.cpp" />
       </list>
     </option>
   </component>
@@ -234,14 +244,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Sequence.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.666667">
-          <caret line="63" column="17" selection-start-line="59" selection-start-column="0" selection-end-line="63" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assign03.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-19.444445">
@@ -250,10 +252,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Sequence.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="11.666667">
+          <caret line="70" column="59" selection-start-line="66" selection-start-column="0" selection-end-line="70" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Sequence.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5777778">
-          <caret line="234" column="5" selection-start-line="234" selection-start-column="5" selection-end-line="234" selection-end-column="5" />
+        <state vertical-scroll-proportion="-7.2222223">
+          <caret line="240" column="45" selection-start-line="240" selection-start-column="45" selection-end-line="240" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assign03Auto.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.491453">
+          <caret line="467" column="23" selection-start-line="467" selection-start-column="23" selection-end-line="467" selection-end-column="23" />
           <folding />
         </state>
       </provider>
