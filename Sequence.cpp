@@ -238,13 +238,10 @@ namespace CS3358_Sp2016
     {
         // If item(s) exists:
         if (is_item()) {
-            cout << "currentIndex is: " << current_index << endl;
-            cout << "From here: " << endl;
             return data[current_index];
-        } else {
-            cout << "Returning value type for else " << value_type();
-            return value_type();
         }
+
+        return value_type();
     }
 }
 
