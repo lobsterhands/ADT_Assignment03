@@ -100,8 +100,8 @@ namespace CS3358_Sp2016
     }
 
     void sequence::start() {
-//       The first item on the sequence becomes the current item
-//      (but if the sequence is empty, then there is no current item).   }
+        // The first item on the sequence becomes the current item
+        // (but if the sequence is empty, then there is no current item).
         if (used > 0) {
             current_index = 0;
         }
@@ -109,14 +109,9 @@ namespace CS3358_Sp2016
 
     void sequence::advance()
     {
-//    Pre:  is_item returns true.
-//    Post: If the current item was already the last item in the
-//      sequence, then there is no longer any current item. Otherwise,
-//      the new current item is the item immediately after the original
-//      current item.
-
         // If item(s) exists in sequence
         if (is_item()) {
+            // Increment the current_index if there is a current item
             if (current_index != used) {
                 current_index++;
             }
@@ -125,29 +120,40 @@ namespace CS3358_Sp2016
 
     void sequence::insert(const value_type& entry)
     {
-        //A new copy of entry has been inserted in the sequence
-//      before the current item. If there was no current item, then
-//      the new entry has been inserted at the front of the sequence.
-//      In either case, the newly inserted item is now the current item
-//      of the sequence.
+        if (used + 1 > capacity) { // If adding to sequence will exceed capacity
+            cout << "RESIZING" << endl;
+            resize((int) capacity * 1.25);
+        }
 
-        cout << "Current index " << current_index << endl;
+        cout << "CAPACITY: " << capacity << endl;
+        if (current_index == used && used == 0) // If there is no current index
+        {
+            data[0] = entry; // insert entry into first position
+            used++;
+            return; // Our work here is done
+        }
 
-//        if (current_index > 0) {
-//            // write to current_index-1;
-//            data[current_index-1] = entry;
-//            // Be sure to preserve all data that is currently there
-//            // which may require shifting / resizing
-//            used++;
-//        } else {
-//            data[current_index] = entry;
-//            used++;
-//        }
+        // Copy current data into new sequence leaving space for new entry
+        value_type *temp = new value_type[capacity]; // Allocate space
+        if (temp == NULL) // Ensure memory is allocated
+        {
+            cerr << "*** Error: Memory not available. Exiting program. ***";
+            exit(0);
+        }
 
-        cout << "used: " << used << endl;
-        cout << "data[used]; " << data[used] << endl;
-        data[used] = entry;
-        current_index++;
+        int offSet = 0;
+        for (int i = 0; i < used; ++i) {
+            cout << "Copy " << data[i] << " into index " << i << endl;
+            if (current_index == i) {
+                offSet = 1;
+            }
+            temp[i+offSet] = data[i]; // Copy existing values
+        }
+
+        delete [] data; // Free up old space
+        data = temp; // Update numbers to new memory location
+
+        data[current_index] = entry; // Write the entry to the current_index
         used++;
     }
 
@@ -188,8 +194,9 @@ namespace CS3358_Sp2016
     {
         // If item(s) exists:
         if (is_item()) {
+            cout << "currentIndex is: " << current_index << endl;
             cout << "From here: " << endl;
-            return data[0];
+            return data[current_index];
         } else {
             cout << "Returning value type for else " << value_type();
             return value_type();
