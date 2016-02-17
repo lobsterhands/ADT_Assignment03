@@ -127,10 +127,14 @@ namespace CS3358_Sp2016
 
         cout << "CAPACITY: " << capacity << endl;
         if (current_index == used && used == 0) // If there is no current index
-        {
+        { // and the sequence is empty
             data[0] = entry; // insert entry into first position
             used++;
             return; // Our work here is done
+        }
+
+        if (current_index == used && used > 0) { // If there is no current index
+            current_index = 0; // and the sequence is not empty, update current_index
         }
 
         // Copy current data into new sequence leaving space for new entry
@@ -157,9 +161,49 @@ namespace CS3358_Sp2016
         used++;
     }
 
-    void sequence::attach(const value_type& entry)
-    {
-        cout << "attach(const value_type& entry) not implemented yet" << endl;
+    void sequence::attach(const value_type& entry) {
+//    Post: A new copy of entry has been inserted in the sequence after
+//      the current item. If there was no current item, then the new
+//      entry has been attached to the end of the sequence. In either
+//      case, the newly inserted item is now the current item of the
+//      sequence.
+
+        if (used + 1 > capacity) { // If adding to sequence will exceed capacity
+            cout << "RESIZING" << endl;
+            resize((int) capacity * 1.25);
+        }
+
+        if (current_index == used) // If there is no current index
+        {
+            data[used] = entry; // insert entry into first position
+            current_index = used;
+            used++;
+            return; // Our work here is done
+        }
+
+        // Copy current data into new sequence leaving space for new entry
+        value_type *temp = new value_type[capacity]; // Allocate space
+        if (temp == NULL) // Ensure memory is allocated
+        {
+            cerr << "*** Error: Memory not available. Exiting program. ***";
+            exit(0);
+        }
+
+        int offSet = 0;
+        for (int i = 0; i < used; ++i) {
+            cout << "Copy " << data[i] << " into index " << i << endl;
+            if (current_index+1 == i) {
+                offSet = 1;
+            }
+            temp[i+offSet] = data[i]; // Copy existing values
+        }
+
+        delete [] data; // Free up old space
+        data = temp; // Update numbers to new memory location
+
+        data[current_index+1] = entry; // Write the entry to the current_index
+        current_index++;
+        used++;
     }
 
     void sequence::remove_current()
