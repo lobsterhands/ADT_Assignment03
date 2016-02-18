@@ -12,9 +12,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="278a9081-53a5-497c-8bc7-39897d517da0" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assign03.o" afterPath="$PROJECT_DIR$/Assign03.o" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sequence.o" afterPath="$PROJECT_DIR$/Sequence.o" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/a3" afterPath="$PROJECT_DIR$/a3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/a3a" afterPath="$PROJECT_DIR$/a3a" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assign03.cpp" afterPath="$PROJECT_DIR$/Assign03.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sequence.cpp" afterPath="$PROJECT_DIR$/Sequence.cpp" />
     </list>
     <ignored path="Assign03SuppliedFiles.iws" />
@@ -39,28 +42,18 @@
       <file leaf-file-name="Sequence.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Sequence.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="11.666667">
-              <caret line="70" column="59" selection-start-line="66" selection-start-column="0" selection-end-line="70" selection-end-column="59" />
+            <state vertical-scroll-proportion="35.0">
+              <caret line="28" column="10" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Sequence.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Sequence.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Sequence.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.2222223">
-              <caret line="240" column="45" selection-start-line="240" selection-start-column="45" selection-end-line="240" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Assign03Auto.cpp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Assign03Auto.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.491453">
-              <caret line="467" column="23" selection-start-line="467" selection-start-column="23" selection-end-line="467" selection-end-column="23" />
+            <state vertical-scroll-proportion="-1.5333333">
+              <caret line="104" column="60" selection-start-line="0" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -69,8 +62,18 @@
       <file leaf-file-name="Assign03.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assign03.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.444445">
-              <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
+            <state vertical-scroll-proportion="8.888889">
+              <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Assign03Auto.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assign03Auto.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.333333">
+              <caret line="477" column="47" selection-start-line="477" selection-start-column="34" selection-end-line="477" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -84,9 +87,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/Assign03Auto.cpp" />
+        <option value="$PROJECT_DIR$/Sequence.h" />
         <option value="$PROJECT_DIR$/Assign03.cpp" />
         <option value="$PROJECT_DIR$/Sequence.cpp" />
-        <option value="$PROJECT_DIR$/Assign03Auto.cpp" />
       </list>
     </option>
   </component>
@@ -195,14 +199,24 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12035541" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3562197" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -211,7 +225,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -246,32 +259,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assign03.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.444445">
-          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Sequence.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="11.666667">
-          <caret line="70" column="59" selection-start-line="66" selection-start-column="0" selection-end-line="70" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Sequence.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.2222223">
-          <caret line="240" column="45" selection-start-line="240" selection-start-column="45" selection-end-line="240" selection-end-column="45" />
+        <state vertical-scroll-proportion="8.888889">
+          <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assign03Auto.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.491453">
-          <caret line="467" column="23" selection-start-line="467" selection-start-column="23" selection-end-line="467" selection-end-column="23" />
+        <state vertical-scroll-proportion="-8.333333">
+          <caret line="477" column="47" selection-start-line="477" selection-start-column="34" selection-end-line="477" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sequence.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="35.0">
+          <caret line="28" column="10" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sequence.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.5333333">
+          <caret line="104" column="60" selection-start-line="0" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
           <folding />
         </state>
       </provider>

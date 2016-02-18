@@ -46,26 +46,25 @@ using namespace std;
 namespace CS3358_Sp2016
 {
    // CONSTRUCTORS and DESTRUCTOR
-   sequence::sequence(size_type initial_capacity)
-       : used(0), current_index(0), capacity(initial_capacity)
-   {
-       // Validate capacity
-       if (capacity < 1) {
-           capacity = 1;
-       }
 
-       data = new value_type[capacity];
-   }
 
-   sequence::sequence(const sequence& source)
-       : used(source.used), current_index(source.current_index),
-         capacity(source.capacity)
-   {
-       data = new value_type[capacity];
-       for (int i = 0; i < used; i++) {
-           data[i] = source.data[i];
-       }
-   }
+    sequence::sequence(size_type initial_capacity)
+    : used(0), current_index(0), capacity(initial_capacity)
+    {
+        assert(initial_capacity != 0);
+
+        data = new value_type[capacity];
+    }
+
+    sequence::sequence(const sequence& source)
+    : used(source.used), current_index(source.current_index),
+        capacity(source.capacity)
+    {
+        data = new value_type[capacity];
+        for (size_type i = 0; i < used; i++) {
+            data[i] = source.data[i];
+        }
+    }
 
     sequence::~sequence()
     {
@@ -75,33 +74,35 @@ namespace CS3358_Sp2016
     // MODIFICATION MEMBER FUNCTIONS
     void sequence::resize(size_type new_capacity)
     {
+        assert(new_capacity > 0);
+
         // Ensure new_capacity will be able to retain existing data
         if (new_capacity < 1 || new_capacity < used) {
             // Set capacity to exactly what is needed or to 1
-            capacity = used > 0 ? used : 1;
-        } else {
-            // If the capacity is growing
-            capacity = (new_capacity == capacity) ? new_capacity + 1 : new_capacity;
-
-            value_type *temp = new value_type[capacity]; // Allocate space
-            if (temp == NULL) // Ensure memory is allocated
-            {
-                cerr << "*** Error: Memory not available. Exiting program. ***";
-                exit(0);
-            }
-
-            for (int i = 0; i < used; i++) {
-                temp[i] = data[i]; // Copy existing values
-            }
-
-            delete [] data; // Free up old space
-            data = temp; // Update sequence::data to new memory location
+            new_capacity = (used > 0) ? used : 1;
         }
+
+        // If the capacity is growing
+        capacity = (new_capacity == capacity) ? (new_capacity + 1) : new_capacity;
+
+        value_type *temp = new value_type[capacity]; // Allocate space
+        if (temp == NULL) // Ensure memory is allocated
+        {
+            cerr << "*** Error: Memory not available. Exiting program. ***";
+            exit(0);
+        }
+
+        for (size_type i = 0; i < used; i++) {
+            temp[i] = data[i]; // Copy existing values
+        }
+
+        delete [] data; // Free up old space
+        data = temp; // Update sequence::data to new memory location
     }
 
     void sequence::start() {
         // The first item on the sequence becomes the current item
-        // (but if the sequence is empty, then there is no current item).
+        // (if sequence is empty, current_index is already 0
         if (used > 0) {
             current_index = 0;
         }
@@ -109,135 +110,95 @@ namespace CS3358_Sp2016
 
     void sequence::advance()
     {
+        assert(is_item());
         // If item(s) exists in sequence
-        if (is_item()) {
-            // Increment the current_index if there is a current item
-            if (current_index != used) {
-                current_index++;
-            }
-        }
+        current_index++;
     }
 
     void sequence::insert(const value_type& entry)
     {
         if (used == capacity) { // If adding to sequence will exceed capacity
-            resize((int) capacity * 1.25);
+            size_type new_capacity = (int)((capacity * 1.25) + 1);
+            resize(new_capacity);
         }
 
-        if (current_index == used && used == 0) // If there is no current index
-        { // and the sequence is empty
+        if (current_index == used && used == 0) { // If there is no current index
+            // and the sequence is empty
             data[0] = entry; // insert entry into first position
             used++;
-            return; // Our work here is done
+            return;
         }
 
-        if (current_index == used && used > 0) { // If there is no current index
-            current_index = 0; // and the sequence is not empty, update current_index
+        // If there is no current item and the sequence is not empty
+        if (current_index == used && used > 0) {
+            current_index = 0; // Set current_index to beginning of sequence
         }
 
-        // Copy current data into new sequence leaving space for new entry
-        value_type *temp = new value_type[capacity]; // Allocate space
-        if (temp == NULL) // Ensure memory is allocated
+        // Copy data from end towards beginning to preserve data
+        for(size_type i = used; i > current_index; i--)
         {
-            cerr << "*** Error: Memory not available. Exiting program. ***";
-            exit(0);
+            data[i] = data[i-1];
         }
-
-        int offSet = 0;
-        for (int i = 0; i < used; ++i) {
-            if (current_index == i) {
-                offSet = 1;
-            }
-            temp[i+offSet] = data[i]; // Copy existing values
-        }
-
-        delete [] data; // Free up old space
-        data = temp; // Update numbers to new memory location
-
-        data[current_index] = entry; // Write the entry to the current_index
-        used++;
+        data[current_index] = entry; // Insert the entry
+        used ++;
     }
 
     void sequence::attach(const value_type& entry)
     {
-
         if (used == capacity) { // If adding to sequence will exceed capacity
-            resize((int) capacity * 1.25);
+            size_type new_capacity = (int)((capacity * 1.25) + 1);
+            resize(new_capacity);
         }
 
-        if (current_index == used) // If there is no current index
-        {
-            data[used] = entry; // insert entry into first position
-            current_index = used;
+        if (current_index == used) {// If there is no current index
+            data[current_index] = entry; // insert entry into last position
             used++;
-            return; // Our work here is done
+            return;
         }
 
-        // Copy current data into new sequence leaving space for new entry
-        value_type *temp = new value_type[capacity]; // Allocate space
-        if (temp == NULL) // Ensure memory is allocated
-        {
-            cerr << "*** Error: Memory not available. Exiting program. ***";
-            exit(0);
+        for(size_type i = used; i > current_index; i--) {
+            data[i] = data[i-1];
         }
-
-        int offSet = 0;
-        for (int i = 0; i < used; ++i) {
-            if (current_index+1 == i) {
-                offSet = 1;
-            }
-            temp[i+offSet] = data[i]; // Copy existing values
-        }
-
-        delete [] data; // Free up old space
-        data = temp; // Update numbers to new memory location
-
-        data[current_index+1] = entry; // Write the entry to the current_index
+        data[current_index + 1] = entry;
+        used ++;
         current_index++;
-        used++;
     }
 
     void sequence::remove_current()
     {
-        if (is_item()) {
+        assert(is_item());
 
-            // Copy current data into new sequence leaving space for new entry
-            value_type *temp = new value_type[capacity]; // Allocate space
-            if (temp == NULL) // Ensure memory is allocated
+        // Shift the data after the current_index one position "left"
+        for (size_type i = current_index; i < used; i++) {
+            data[i] = data[i+1];
+        }
+
+        used--;
+    }
+
+    sequence& sequence::operator=(const sequence& source)
+    {
+        if (this != &source) { // If sequence is not being set to itself
+            used = source.used;
+            current_index = source.current_index;
+            capacity = source.capacity;
+
+            data = new value_type[capacity]; // Allocate space
+            if (data == NULL) // Ensure memory is allocated
             {
                 cerr << "*** Error: Memory not available. Exiting program. ***";
                 exit(0);
             }
 
-            int offSet = 0;
-            for (int i = 0; i < used-1; ++i) {
-                if (current_index == i) {
-                    offSet = 1;
-                }
-                temp[i] = data[i+offSet]; // Copy existing values
+            for (size_type i = 0; i < used; i++) {
+                data[i] = source.data[i];
             }
-
-            delete [] data; // Free up old space
-            data = temp; // Update numbers to new memory location
-
-            used--;
-        }
-    }
-
-    sequence& sequence::operator=(const sequence& source)
-    {
-        used = source.used;
-        current_index = source.current_index;
-        capacity = source.capacity;
-        for (int i = 0; i < used; i++) {
-            data[i] = source.data[i];
         }
 
         return *this;
     }
 
    // CONSTANT MEMBER FUNCTIONS
-
     sequence::size_type sequence::size() const
     {
         return used;
@@ -255,12 +216,9 @@ namespace CS3358_Sp2016
 
     sequence::value_type sequence::current() const
     {
-        // If item(s) exists:
-        if (is_item()) {
-            return data[current_index];
-        }
+        assert(is_item());
 
-        return value_type();
+        return data[current_index];
     }
 }
 

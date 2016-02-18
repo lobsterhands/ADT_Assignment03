@@ -34,7 +34,7 @@ double get_number();
 
 int main()
 {
-   sequence test; // sequence to perform tests on
+   sequence test(5); // sequence to perform tests on
    char choice;   // command character entered by user
 
    cout << "I have initialized an empty sequence of real numbers."
